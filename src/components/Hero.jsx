@@ -89,7 +89,7 @@ export default function Hero() {
         playsInline
       />
 
-      <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="src/assets/logo-hero.svg"></img>
+      <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-0'>
