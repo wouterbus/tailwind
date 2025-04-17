@@ -88,49 +88,38 @@ export default function Hero() {
         muted
         playsInline
       />
+
+      <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="src/assets/logo-hero.svg"></img>
       
       {/* Custom Controls */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-4 bg-black bg-opacity-50 px-4 py-2 rounded-full">
+      <div className='absolute w-full bottom-0'>
+      <div className="flex justify-between">
         <button 
           onClick={togglePlay}
-          className="text-white p-2 rounded-full hover:bg-gray-700 transition-colors"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
             // Pause icon
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="6" y="4" width="4" height="16"></rect>
-              <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
+            <span class="controls">Pause</span>
           ) : (
             // Play icon
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
+            <span class="controls">Play</span>
           )}
         </button>
         
         <button 
           onClick={toggleMute}
-          className="text-white p-2 rounded-full hover:bg-gray-700 transition-colors"
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
           {isMuted ? (
             // Volume muted icon
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <line x1="23" y1="9" x2="17" y2="15"></line>
-              <line x1="17" y1="9" x2="23" y2="15"></line>
-            </svg>
+            <span class="controls">Unmute</span>
           ) : (
             // Volume icon
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            </svg>
+            <span class="controls">Mute</span>
           )}
         </button>
+      </div>
       </div>
     </div>
   )

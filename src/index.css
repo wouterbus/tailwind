@@ -15,6 +15,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+span.controls {
+  color: #FFF;
+  font-family: "Founders Grotesk";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -49,12 +58,10 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
