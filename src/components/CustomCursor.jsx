@@ -1,19 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function CustomCursor() {
+export default function CustomCursor({ children }) {
   const cursorRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const [isClickable, setIsClickable] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Move cursor
       if (cursorRef.current) {
         cursorRef.current.style.left = `${e.clientX}px`
         cursorRef.current.style.top = `${e.clientY}px`
       }
 
-      // Check for clickable elements up the DOM
+      // Traverse up the DOM to check for clickable elements
       let el = e.target
       let clickable = false
 
@@ -34,36 +33,40 @@ export default function CustomCursor() {
       setIsClickable(clickable)
     }
 
-    const show = () => setIsVisible(true)
-    const hide = () => setIsVisible(false)
-
-    // Attach global events
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseenter', show)
-    window.addEventListener('mouseleave', hide)
+    if (isVisible) {
+      window.addEventListener('mousemove', handleMouseMove)
+    }
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseenter', show)
-      window.removeEventListener('mouseleave', hide)
     }
-  }, [])
+  }, [isVisible])
 
   return (
-    isVisible && (
+    <>
       <div
-        ref={cursorRef}
-        id="custom-cursor"
-        className={`
-          pointer-events-none fixed z-[9999]
-          transition-all duration-200 ease-out
-          rounded-full
-          ${isClickable 
-            ? 'w-10 h-10 bg-blue-500 animate-pulse' 
-            : 'w-[5px] h-[5px] bg-white mix-blend-exclusion'}
-        `}
-        style={{ transform: 'translate(-50%, -50%)' }}
-      />
-    )
+        className="cursor-none"
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+      >
+        {children}
+      </div>
+
+      {isVisible && (
+        <div
+          ref={cursorRef}
+          id="custom-cursor"
+          className={`
+            pointer-events-none fixed z-[9999]
+            transition-all duration-200 ease-out
+            ${isClickable 
+              ? 'w-10 h-10 bg-blue-500 animate-pulse' 
+              : 'w-6 h-6 border-2 border-white'}
+            rounded-full
+          `}
+          style={{ transform: 'translate(-50%, -50%)' }}
+        />
+      )}
+    </>
   )
 }

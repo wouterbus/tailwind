@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import CustomCursor from './CustomCursor'
 
 export default function Hero() {
   const videoRef = useRef(null)
@@ -6,6 +7,7 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
+  const [showCursor, setShowCursor] = useState(false)
 
   // Set up intersection observer to detect when video enters viewport
   useEffect(() => {
@@ -79,7 +81,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={containerRef} className="w-full h-screen bg-black relative">
+    <div ref={containerRef} className="w-[calc(100vw-64px)] h-[calc(100vh-64px)] bg-black relative m-[32px]">
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
@@ -89,7 +91,7 @@ export default function Hero() {
         playsInline
       />
 
-      <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
+    <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-0'>
@@ -100,25 +102,25 @@ export default function Hero() {
         >
           {isPlaying ? (
             // Pause icon
-            <span class="controls">Pause</span>
+            <span class="controls">Pauzar</span>
           ) : (
             // Play icon
-            <span class="controls">Play</span>
+            <span class="controls">Tocar</span>
           )}
         </button>
-        
-        <button 
+        <button className="cursor-pointer"
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
           {isMuted ? (
             // Volume muted icon
-            <span class="controls">Unmute</span>
+            <span class="controls">Open Sound</span>
           ) : (
             // Volume icon
-            <span class="controls">Mute</span>
+            <span class="controls">Calar</span>
           )}
         </button>
+
       </div>
       </div>
     </div>
