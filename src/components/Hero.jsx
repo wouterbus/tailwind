@@ -1,5 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import CustomCursor from './CustomCursor'
+import hamburgerLine from '../assets/hamburger-line.svg'
+import { AnimatePresence, motion } from 'framer-motion'
+import MenuOverlay from './MenuOverlay'
 
 export default function Hero() {
   const videoRef = useRef(null)
@@ -8,6 +11,10 @@ export default function Hero() {
   const [isMuted, setIsMuted] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
   const [showCursor, setShowCursor] = useState(false)
+
+  const [menuOpen, setMenuOpen] = useState(false) // 🔥 new
+
+  const toggleMenu = () => setMenuOpen(!menuOpen)
 
   // Set up intersection observer to detect when video enters viewport
   useEffect(() => {
@@ -82,21 +89,27 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="w-[calc(100vw-64px)] h-[calc(100vh-64px)] bg-black relative m-[32px]">
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        src="/videoplayback.mp4"
-        loop
-        muted
-        playsInline
-      />
 
-    <img className="absolute top-10 left-10 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
+<MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
+
+{/* 🎥 Background video */}
+<video
+  ref={videoRef}
+  className="w-full h-full object-cover"
+  src="/videoplayback.mp4"
+  loop
+  muted
+  playsInline
+/>
+
+
+
+    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
       
       {/* Custom Controls */}
-      <div className='absolute w-full bottom-0'>
+      <div className='absolute w-full bottom-4'>
       <div className="flex justify-between">
-        <button 
+        <button className="cursor-pointer p-0"
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause" : "Play"}
         >
@@ -108,7 +121,7 @@ export default function Hero() {
             <span class="controls">Tocar</span>
           )}
         </button>
-        <button className="cursor-pointer"
+        <button className="cursor-pointer p-0"
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
