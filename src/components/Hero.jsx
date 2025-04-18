@@ -115,7 +115,7 @@ export default function Hero() {
         >
           {isPlaying ? (
             // Pause icon
-            <span class="controls">Pauzar</span>
+            <span class="controls">Pausar</span>
           ) : (
             // Play icon
             <span class="controls">Tocar</span>
@@ -130,7 +130,7 @@ export default function Hero() {
             <span class="controls">Open Sound</span>
           ) : (
             // Volume icon
-            <span class="controls">Calar</span>
+            <span class="controls">Selenciar</span>
           )}
         </button>
 

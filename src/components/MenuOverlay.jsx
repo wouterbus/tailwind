@@ -8,15 +8,15 @@ export default function MenuOverlay({ isOpen, toggle }) {
       <div className="absolute top-6 right-6 z-50">
         <button
           onClick={toggle}
-          className="w-[100px] h-[100px] flex items-center justify-center bg-transparent border-none cursor-pointer relative"
+          className="w-[60px] h-[60px] flex items-center justify-center bg-transparent border-none cursor-pointer relative"
         >
-          <div className="relative w-[100px] h-[100px] flex items-center justify-center">
+          <div className="relative w-[60px] h-[60px] flex items-center justify-center">
             {isOpen ? (
               <>
                 <motion.img
                   src={hamburgerLine}
                   alt="line1"
-                  className="absolute w-[100px] h-auto origin-center"
+                  className="absolute w-[60px] h-auto origin-center"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: 45 }}
                   transition={{ type: 'spring', stiffness: 300 }}
@@ -24,7 +24,7 @@ export default function MenuOverlay({ isOpen, toggle }) {
                 <motion.img
                   src={hamburgerLine}
                   alt="line2"
-                  className="absolute w-[100px] h-auto origin-center"
+                  className="absolute w-[60px] h-auto origin-center"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: -45 }}
                   transition={{ type: 'spring', stiffness: 300 }}
@@ -41,7 +41,7 @@ export default function MenuOverlay({ isOpen, toggle }) {
                     key={i}
                     src={hamburgerLine}
                     alt="menu line"
-                    className="w-[100px] h-auto"
+                    className="w-[60px] h-auto"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
@@ -81,7 +81,7 @@ export default function MenuOverlay({ isOpen, toggle }) {
                 exit: { opacity: 0, y: 30, transition: { staggerDirection: -1 } }
               }}
             >
-              {['Home', 'Work', 'About', 'Contact'].map((label) => (
+              {['Quem Somos', 'Como tudo acontece', 'Portfolio', 'Contato'].map((label) => (
                 <motion.a
                   key={label}
                   href={`#${label.toLowerCase()}`}
