@@ -1,10 +1,10 @@
 import '../styles/globals.css'
-import Hero from './components/Hero'
 import "./fonts.css";
+import Home from './pages/home'
 
 function App() {
   return (
-    <Hero />
+    <Home />
   )
 }
 

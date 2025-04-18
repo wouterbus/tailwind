@@ -1,7 +1,15 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import hamburgerLine from '../assets/hamburger-line.svg'
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom'; // ✅ React Router Link
+import hamburgerLine from '../assets/hamburger-line.svg';
 
 export default function MenuOverlay({ isOpen, toggle }) {
+  const menuItems = [
+    { label: 'Quem Somos', path: '/quem-somos' },
+    { label: 'Como tudo acontece', path: '/como-tudo-acontece' },
+    { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Contato', path: '/contato' }
+  ];
+
   return (
     <>
       {/* Toggle button */}
@@ -81,25 +89,28 @@ export default function MenuOverlay({ isOpen, toggle }) {
                 exit: { opacity: 0, y: 30, transition: { staggerDirection: -1 } }
               }}
             >
-              {['Quem Somos', 'Como tudo acontece', 'Portfolio', 'Contato'].map((label) => (
-                <motion.a
+              {menuItems.map(({ label, path }) => (
+                <motion.div
                   key={label}
-                  href={`#${label.toLowerCase()}`}
-                  onClick={toggle}
-                  className="block"
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 },
                     exit: { opacity: 0, y: 20 }
                   }}
                 >
-                  {label}
-                </motion.a>
+                  <Link
+                    to={path}
+                    onClick={toggle}
+                    className="block hover:opacity-80 transition-opacity"
+                  >
+                    {label}
+                  </Link>
+                </motion.div>
               ))}
             </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
