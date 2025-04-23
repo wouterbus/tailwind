@@ -3,7 +3,16 @@ import './VideoLoop.css';
 import { div } from 'framer-motion/client';
 
 
-const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project thumbnail",   headline }) => {
+const VideoHoverPreview = ({
+  videoSrc,
+  fullProjectLink,
+  thumbnailAlt = "Project thumbnail",
+  headline,
+  aspectRatio = "16/9", // default to horizontal
+  customWidth = "100%", 
+  customHeight = "auto",
+  alignment = "center" 
+}) => {
   const [isHovering, setIsHovering] = useState(false);
   const videoRef = useRef(null);
   const thumbnailRef = useRef(null);
@@ -67,33 +76,39 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
       {headline && (
         <h3 className="mb-2 font-semibold">{headline}</h3>
       )}
-  
-      <div 
-        className="relative w-full h-full video-container"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        style={{ cursor: isHovering ? 'url("public/custom-cursor.svg") 16 16, auto' : 'default' }}
-        onClick={() => isHovering && window.open(fullProjectLink)}
-      >
+<div 
+  className="relative w-full h-full video-container "
+  style={{
+    cursor: isHovering ? 'url("/custom-cursor.svg") 16 16, auto' : 'default',
+    aspectRatio,
+    width: customWidth,
+    height: customHeight || 'auto', // optionally allow a height override
+  }}
+  onMouseEnter={() => setIsHovering(true)}
+  onMouseLeave={() => setIsHovering(false)}
+  onClick={() => isHovering && window.open(fullProjectLink)}
+>
+
         {/* Thumbnail Image (First Frame) */}
         <img 
-          ref={thumbnailRef} 
-          alt={thumbnailAlt} 
-          className="absolute top-0 left-0 w-full h-full object-cover" 
-          style={{ opacity: isHovering ? 0 : 1 }}
-        />
+  ref={thumbnailRef} 
+  alt={thumbnailAlt} 
+  className="absolute top-0 left-0 w-full h-full object-cover" 
+  style={{ opacity: isHovering ? 0 : 1 }}
+/>
   
         {/* Video Element */}
         <video 
-          ref={videoRef}
-          src={videoSrc}
-          className="w-full h-full object-cover video"
-          muted
-          preload="auto"
-          playsInline
-          onLoadedMetadata={handleVideoLoaded}
-          style={{ opacity: isHovering ? 1 : 0 }}
-        />
+  ref={videoRef}
+  src={videoSrc}
+  className="absolute w-full h-full object-cover video"
+  muted
+  preload="auto"
+  playsInline
+  onLoadedMetadata={handleVideoLoaded}
+  style={{ opacity: isHovering ? 1 : 0 }}
+/>
+
   
         {isHovering && (
           <div className="overlay">

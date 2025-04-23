@@ -1,9 +1,12 @@
 .video-container {
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
   width: 100%;
-  max-width: 50%;
   overflow: hidden;
   background-color: black;
+  position: relative;
+  overflow: hidden;
 }
 
 .video-container img {
@@ -36,13 +39,4 @@
 
 .video-container:hover .overlay {
   opacity: 1;
-}
-
-h1 {
-  font-size: 2rem;
-  font-family: 'Founders Grotesk', sans-serif;
-  font-weight: 500;
-  margin-bottom: 0;
-  line-height: 0;
-  margin-top: 32px;
 }
