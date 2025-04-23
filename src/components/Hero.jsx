@@ -87,7 +87,7 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
   }
 
   return (
-    <div ref={containerRef} className="w-[calc(100vw-64px)] h-[calc(100vh-64px)] bg-black relative m-[32px]">
+    <div ref={containerRef} className="w-[calc(100vw-32px)] h-[calc(100vh-32px)] bg-black relative m-[16px]">
 
 <MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
 
