@@ -1,0 +1,25 @@
+.project-detail {
+    font-family: "Founders Grotesk";
+  }
+  
+  .project-detail h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .project-detail .credits {
+    margin-top: 3rem;
+  }
+  
+  .project-detail .credits h3 {
+    font-size: 21.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .project-detail .credits li {
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-family: "Founders Grotesk";
+  }
+  

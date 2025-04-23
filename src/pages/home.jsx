@@ -1,39 +1,22 @@
+import React from "react";
 import Hero from '../components/Hero';
 import VideoHoverPreview from '../components/VideoLoop/VideoLoop';
+import projects from '../data/projects';
 
 export default function Home() {
-  const projects = [
-    {
-      id: 'project-one',
-      videoSrc: '/videos/quemsomos.mp4',
-      fullProjectLink: '/projects/0001-ProjectOne',
-      thumbnailAlt: 'Project 1',
-      headline: 'Project One',
-      customWidth: "60%",
-    },
-    {
-      id: 'project-two',
-      videoSrc: '/videos/videoplayback.mp4',
-      fullProjectLink: '/portfolio/projecttwo',
-      thumbnailAlt: 'Project 2',
-      headline: 'Project Two',
-      aspectRatio: "16/9",
-      customWidth: "40%",
-    },
-  ];
+  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 2);
 
   return (
     <main className="p-8">
       <Hero title="" width="32%" videoSrc="/videos/videoplayback.mp4" />
-
-      <div className="">
-        {projects.map((p) => (
-          <VideoHoverPreview 
+      <div>
+        {featuredProjects.map((p) => (
+          <VideoHoverPreview
             key={p.id}
             videoSrc={p.videoSrc}
-            fullProjectLink={p.fullProjectLink}
+            fullProjectLink={`/projects/${p.id}`} // 👈 dynamic route
             thumbnailAlt={p.thumbnailAlt}
-            headline={p.headline}
+            headline={p.title}
             aspectRatio={p.aspectRatio}
             customWidth={p.customWidth}
           />
