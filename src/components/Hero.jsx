@@ -4,7 +4,7 @@ import hamburgerLine from '../assets/hamburger-line.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuOverlay from './MenuOverlay'
 
-export default function Hero() {
+export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg" }) {
   const videoRef = useRef(null)
   const containerRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -16,12 +16,11 @@ export default function Hero() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
-  // Set up intersection observer to detect when video enters viewport
   useEffect(() => {
     const options = {
-      root: null, // use the viewport
+      root: null,
       rootMargin: '0px',
-      threshold: 0.25 // trigger when 25% of the video is visible
+      threshold: 0.25
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -94,17 +93,17 @@ export default function Hero() {
 
 {/* 🎥 Background video */}
 <video
-  ref={videoRef}
-  className="w-full h-full object-cover"
-  src="/videoplayback.mp4"
-  loop
-  muted
-  playsInline
-/>
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        src={videoSrc}
+        loop
+        muted
+        playsInline
+      />
 
 
 
-    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
+    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src={logoSrc}></img>
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>

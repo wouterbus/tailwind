@@ -10,11 +10,7 @@ const customGradient = [
 export default function Home() {
   return (
     <main>
-      <Hero />
-
-      <section className="p-8 flex justify-center items-center">
-        <GradientMap src="public/gradient-map-image-test.png"gradient={customGradient} />
-      </section>
+      <Hero videoSrc="public/videoplayback.mp4" />
     </main>
   );
 }

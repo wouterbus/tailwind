@@ -4,6 +4,7 @@ import hamburgerLine from '../assets/hamburger-line.svg';
 
 export default function MenuOverlay({ isOpen, toggle }) {
   const menuItems = [
+    { label: 'Home', path: '/' },
     { label: 'Quem Somos', path: '/quem-somos' },
     { label: 'Como tudo acontece', path: '/como-tudo-acontece' },
     { label: 'Portfolio', path: '/portfolio' },
