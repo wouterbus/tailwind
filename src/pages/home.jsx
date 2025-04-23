@@ -10,7 +10,7 @@ const customGradient = [
 export default function Home() {
   return (
     <main>
-      <Hero videoSrc="public/videoplayback.mp4" />
+      <Hero videoSrc="/videos/videoplayback.mp4" />
     </main>
   );
 }
