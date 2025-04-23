@@ -10,17 +10,17 @@ export default function Portfolio() {
     <main className="p-8">
       <Hero title="Portfolio" width="180" logoSrc="/logo-horizontal.svg" videoSrc="/videos/quemsomos.mp4" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedProjects.map((p) => (
-          <VideoHoverPreview
-            key={p.id}
-            videoSrc={p.videoSrc}
-            fullProjectLink={p.fullProjectLink}
-            thumbnailAlt={p.thumbnailAlt}
-            headline={p.title}
-            aspectRatio={p.aspectRatio}
-            customWidth={p.customWidth}
-          />
-        ))}
+      {sortedProjects.map((p) => (
+  <VideoHoverPreview
+    key={p.id}
+    videoSrc={p.videoSrc}
+    fullProjectLink={`/projects/${p.id}`}
+    thumbnailAlt={p.thumbnailAlt}
+    headline={p.title}
+    customWidth={p.customWidth}
+    aspectRatio={p.aspectRatio}
+  />
+))}
       </div>
     </main>
   );

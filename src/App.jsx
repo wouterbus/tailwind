@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import "./fonts.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import ScrollToTop from './components/ScrollToTop';
 import CustomCursor from './components/CustomCursor';
 
 import Home from './pages/home';
@@ -16,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <CustomCursor />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quem-somos" element={<QuemSomos />} />

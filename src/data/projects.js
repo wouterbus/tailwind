@@ -23,7 +23,7 @@ const projects = [
       title: 'Digital Vibes',
       videoSrc: '/videos/videoplayback.mp4',
       thumbnailAlt: 'Digital Vibes',
-      fullProjectLink: '/portfolio/002-digital-vibes',
+      fullProjectLink: '/projects/002-digital-vibes',
       customWidth: '35%',
       aspectRatio: '16/9',
       order: 2,
@@ -34,6 +34,22 @@ const projects = [
         { role: "Role", name: "Name" },
       ]
     },
+    {
+        id: '003-honey-mustard',
+        title: 'Digital Vibes',
+        videoSrc: '/videos/videoplayback.mp4',
+        thumbnailAlt: 'Honey Mustard',
+        fullProjectLink: '/projects/003-honey-mustard',
+        customWidth: '35%',
+        aspectRatio: '16/9',
+        order: 3,
+        credits: [
+          { role: "Director", name: "Hilary Hilton" },
+          { role: "Lead Designer", name: "Barry Oldman" },
+          { role: "Anchor", name: "Fernando da Silva" },
+          { role: "Waterboy", name: "Brad Pitt" },
+        ]
+      },
   ];
   
   export default projects;

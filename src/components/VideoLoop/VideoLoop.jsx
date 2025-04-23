@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import './VideoLoop.css';
 import { div } from 'framer-motion/client';
+import { Link } from 'react-router-dom';
 
 
 const VideoHoverPreview = ({
@@ -73,49 +74,47 @@ const VideoHoverPreview = ({
 
   return (
     <>
-      {headline && (
-        <h3 className="mb-2 font-semibold">{headline}</h3>
+  {headline && (
+    <h3 className="mb-2 font-semibold">{headline}</h3>
+  )}
+
+  <Link to={fullProjectLink} className="block" style={{ width: customWidth }}>
+    <div 
+      className="relative w-full h-full video-container"
+      style={{
+        cursor: isHovering ? 'url("/custom-cursor.svg") 16 16, auto' : 'default',
+        aspectRatio,
+        height: customHeight || 'auto',
+      }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* Thumbnail Image (First Frame) */}
+      <img 
+        ref={thumbnailRef} 
+        alt={thumbnailAlt} 
+        className="absolute top-0 left-0 w-full h-full object-cover" 
+        style={{ opacity: isHovering ? 0 : 1 }}
+      />
+      
+      {/* Video Element */}
+      <video 
+        ref={videoRef}
+        src={videoSrc}
+        className="absolute w-full h-full object-cover video"
+        muted
+        preload="auto"
+        playsInline
+        onLoadedMetadata={handleVideoLoaded}
+        style={{ opacity: isHovering ? 1 : 0 }}
+      />
+
+      {isHovering && (
+        <div className="overlay"></div>
       )}
-<div 
-  className="relative w-full h-full video-container "
-  style={{
-    cursor: isHovering ? 'url("/custom-cursor.svg") 16 16, auto' : 'default',
-    aspectRatio,
-    width: customWidth,
-    height: customHeight || 'auto', // optionally allow a height override
-  }}
-  onMouseEnter={() => setIsHovering(true)}
-  onMouseLeave={() => setIsHovering(false)}
-  onClick={() => isHovering && window.open(fullProjectLink)}
->
-
-        {/* Thumbnail Image (First Frame) */}
-        <img 
-  ref={thumbnailRef} 
-  alt={thumbnailAlt} 
-  className="absolute top-0 left-0 w-full h-full object-cover" 
-  style={{ opacity: isHovering ? 0 : 1 }}
-/>
-  
-        {/* Video Element */}
-        <video 
-  ref={videoRef}
-  src={videoSrc}
-  className="absolute w-full h-full object-cover video"
-  muted
-  preload="auto"
-  playsInline
-  onLoadedMetadata={handleVideoLoaded}
-  style={{ opacity: isHovering ? 1 : 0 }}
-/>
-
-  
-        {isHovering && (
-          <div className="overlay">
-          </div>
-        )}
-      </div>
-    </>
+    </div>
+  </Link>
+</>
   );
   
 };
