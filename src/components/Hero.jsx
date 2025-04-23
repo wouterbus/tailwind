@@ -120,14 +120,14 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
       <div className='absolute w-full bottom-4'>
         <div className="flex justify-between">
           <button
-            className="cursor-pointer p-0"
+            className="p-0 cursor-line"
             onClick={togglePlay}
             aria-label={isPlaying ? "Pause" : "Play"}
           >
             <span className="controls">{isPlaying ? "Pausar" : "Tocar"}</span>
           </button>
           <button
-            className="cursor-pointer p-0"
+            className="p-0 cursor-line" 
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute" : "Mute"}
           >

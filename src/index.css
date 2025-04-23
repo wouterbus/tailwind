@@ -15,6 +15,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, * {
+  cursor: none !important;
+}
+
 span.controls {
   color: #FFF;
   font-family: "Founders Grotesk";
