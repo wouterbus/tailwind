@@ -4,7 +4,7 @@ import hamburgerLine from '../assets/hamburger-line.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuOverlay from './MenuOverlay'
 
-export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg" }) {
+export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg", logoLink = "/", width = "100vw", height = "100vh", title = "Your Page Title" }) {
   const videoRef = useRef(null)
   const containerRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -88,11 +88,11 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
 
   return (
     <div ref={containerRef} className="w-[calc(100vw-32px)] h-[calc(100vh-32px)] bg-black relative m-[16px]">
-
-<MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
-
-{/* 🎥 Background video */}
-<video
+  
+      <MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
+  
+      {/* 🎥 Background video */}
+      <video
         ref={videoRef}
         className="w-full h-full object-cover"
         src={videoSrc}
@@ -100,41 +100,42 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
         muted
         playsInline
       />
-
-
-
-    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src={logoSrc}></img>
-      
+  
+      {/* 🏷 Centered Title */}
+      <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-center z-20 page-title">
+        {title}
+      </h1>
+  
+      <a href={logoLink}>
+        <img
+          className="absolute top-8 left-8 mix-blend-exclusion"
+          src={logoSrc}
+          alt="Logo"
+          width={width}
+          height={height}
+        />
+      </a>
+  
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-      <div className="flex justify-between">
-        <button className="cursor-pointer p-0"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause" : "Play"}
-        >
-          {isPlaying ? (
-            // Pause icon
-            <span class="controls">Pausar</span>
-          ) : (
-            // Play icon
-            <span class="controls">Tocar</span>
-          )}
-        </button>
-        <button className="cursor-pointer p-0"
-          onClick={toggleMute}
-          aria-label={isMuted ? "Unmute" : "Mute"}
-        >
-          {isMuted ? (
-            // Volume muted icon
-            <span class="controls">Open Sound</span>
-          ) : (
-            // Volume icon
-            <span class="controls">Selenciar</span>
-          )}
-        </button>
-
-      </div>
+        <div className="flex justify-between">
+          <button
+            className="cursor-pointer p-0"
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
+            <span className="controls">{isPlaying ? "Pausar" : "Tocar"}</span>
+          </button>
+          <button
+            className="cursor-pointer p-0"
+            onClick={toggleMute}
+            aria-label={isMuted ? "Unmute" : "Mute"}
+          >
+            <span className="controls">{isMuted ? "Open Sound" : "Selenciar"}</span>
+          </button>
+        </div>
       </div>
     </div>
-  )
+  );
+  
 }

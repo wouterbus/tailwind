@@ -65,7 +65,7 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
   return (
     <>
       {headline && (
-        <h1 className="mb-2 font-semibold">{headline}</h1>
+        <h3 className="mb-2 font-semibold">{headline}</h3>
       )}
   
       <div 

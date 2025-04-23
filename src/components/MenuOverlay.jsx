@@ -14,53 +14,65 @@ export default function MenuOverlay({ isOpen, toggle }) {
   return (
     <>
       {/* Toggle button */}
-      <div className="absolute top-6 right-6 z-50">
-        <button
-          onClick={toggle}
-          className="w-[60px] h-[60px] flex items-center justify-center bg-transparent border-none cursor-pointer relative"
+      <div className="absolute top-0 right-0 z-50">
+  <button
+    onClick={toggle}
+    className="w-[160px] h-[160px] flex items-center justify-center bg-black border-none cursor-pointer relative"
+  >
+    <div className="relative w-[200px] h-[200px] flex items-center justify-center menu-overlay">
+
+      {/* 🔄 Rotating background SVG */}
+      <motion.img
+  src="/hamburger-spin-bg.svg"
+  alt="rotating background"
+  className="absolute z-[-1] w-[240px] h-[240px]"
+  animate={{ rotate: 360 }}
+  transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+/>
+
+      {/* 🍔 Hamburger / Close Icon */}
+      {isOpen ? (
+        <>
+          <motion.img
+            src={hamburgerLine}
+            alt="line1"
+            className="absolute w-[40px] h-auto origin-center"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 45 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          />
+          <motion.img
+            src={hamburgerLine}
+            alt="line2"
+            className="absolute w-[40px] h-auto origin-center"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: -45 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          />
+        </>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col gap-2 items-center"
         >
-          <div className="relative w-[60px] h-[60px] flex items-center justify-center">
-            {isOpen ? (
-              <>
-                <motion.img
-                  src={hamburgerLine}
-                  alt="line1"
-                  className="absolute w-[60px] h-auto origin-center"
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: 45 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                />
-                <motion.img
-                  src={hamburgerLine}
-                  alt="line2"
-                  className="absolute w-[60px] h-auto origin-center"
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: -45 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                />
-              </>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col gap-4 items-center"
-              >
-                {[...Array(3)].map((_, i) => (
-                  <motion.img
-                    key={i}
-                    src={hamburgerLine}
-                    alt="menu line"
-                    className="w-[60px] h-auto"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  />
-                ))}
-              </motion.div>
-            )}
-          </div>
-        </button>
-      </div>
+          {[...Array(3)].map((_, i) => (
+            <motion.img
+              key={i}
+              src={hamburgerLine}
+              alt="menu line"
+              className="w-[40px] h-auto"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+            />
+          ))}
+        </motion.div>
+      )}
+    </div>
+  </button>
+</div>
+
 
       {/* Fullscreen menu overlay */}
       <AnimatePresence>
@@ -73,7 +85,7 @@ export default function MenuOverlay({ isOpen, toggle }) {
             className="absolute inset-0 z-40 bg-black/80 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-6"
           >
             <motion.nav
-              className="text-2xl font-semibold space-y-4 text-center"
+              className="text-1xl font-semibold space-y-8 text-violet-500"
               initial="hidden"
               animate="visible"
               exit="exit"
