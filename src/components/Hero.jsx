@@ -11,6 +11,7 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
   const [isMuted, setIsMuted] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
   const [showCursor, setShowCursor] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false) // 🔥 new
 
@@ -66,6 +67,29 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
     }
   }, [])
 
+  useEffect(() => {
+    const handleUserGesture = () => {
+      if (videoRef.current && isMuted) {
+        videoRef.current.play()
+          .then(() => setIsPlaying(true))
+          .catch(err => console.error("Gesture-based play failed:", err));
+      }
+  
+      // only trigger once
+      window.removeEventListener('touchstart', handleUserGesture);
+      window.removeEventListener('click', handleUserGesture);
+    };
+  
+    // trigger on first user tap or click
+    window.addEventListener('touchstart', handleUserGesture, { once: true });
+    window.addEventListener('click', handleUserGesture, { once: true });
+  
+    return () => {
+      window.removeEventListener('touchstart', handleUserGesture);
+      window.removeEventListener('click', handleUserGesture);
+    };
+  }, [isMuted]);
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -86,6 +110,19 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
     }
   }
 
+  const handleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+  
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      video.requestFullscreen().catch(err => {
+        console.error("Fullscreen error:", err);
+      });
+    }
+  };
+  
   return (
     <div ref={containerRef} className="w-[calc(100vw-32px)] h-[calc(100vh-32px)] bg-black relative m-[16px]">
   
@@ -118,23 +155,36 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
   
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-        <div className="flex justify-between">
-          <button
-            className="p-0 cursor-line"
-            onClick={togglePlay}
-            aria-label={isPlaying ? "Pause" : "Play"}
-          >
-            <span className="controls">{isPlaying ? "Pausar" : "Tocar"}</span>
-          </button>
-          <button
-            className="p-0 cursor-line" 
-            onClick={toggleMute}
-            aria-label={isMuted ? "Unmute" : "Mute"}
-          >
-            <span className="controls">{isMuted ? "Open Sound" : "Selenciar"}</span>
-          </button>
-        </div>
-      </div>
+  <div className="flex justify-between items-center px-4">
+    {/* Play/Pause */}
+    <button
+      className="p-0 cursor-line"
+      onClick={togglePlay}
+      aria-label={isPlaying ? "Pause" : "Play"}
+    >
+      <span className="controls">{isPlaying ? "Pausar" : "Tocar"}</span>
+    </button>
+
+    {/* Mute/Unmute */}
+    <button
+      className="p-0 cursor-line"
+      onClick={toggleMute}
+      aria-label={isMuted ? "Unmute" : "Mute"}
+    >
+      <span className="controls">{isMuted ? "Open Sound" : "Selenciar"}</span>
+    </button>
+
+    {/* Fullscreen */}
+    <button
+      className="p-0 cursor-line"
+      onClick={handleFullscreen}
+      aria-label="Fullscreen"
+    >
+      <span className="controls">Fullscreen</span>
+    </button>
+  </div>
+</div>
+
     </div>
   );
   
