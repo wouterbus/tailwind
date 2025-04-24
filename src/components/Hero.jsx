@@ -4,24 +4,24 @@ import hamburgerLine from '../assets/hamburger-line.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuOverlay from './MenuOverlay'
 
-export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg", logoLink = "/", width = "100vw", height = "100vh", title = "Your Page Title" }) {
+export default function Hero() {
   const videoRef = useRef(null)
   const containerRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
   const [showCursor, setShowCursor] = useState(false)
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false) // 🔥 new
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
+  // Set up intersection observer to detect when video enters viewport
   useEffect(() => {
     const options = {
-      root: null,
+      root: null, // use the viewport
       rootMargin: '0px',
-      threshold: 0.25
+      threshold: 0.25 // trigger when 25% of the video is visible
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -67,29 +67,6 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
     }
   }, [])
 
-  useEffect(() => {
-    const handleUserGesture = () => {
-      if (videoRef.current && isMuted) {
-        videoRef.current.play()
-          .then(() => setIsPlaying(true))
-          .catch(err => console.error("Gesture-based play failed:", err));
-      }
-  
-      // only trigger once
-      window.removeEventListener('touchstart', handleUserGesture);
-      window.removeEventListener('click', handleUserGesture);
-    };
-  
-    // trigger on first user tap or click
-    window.addEventListener('touchstart', handleUserGesture, { once: true });
-    window.addEventListener('click', handleUserGesture, { once: true });
-  
-    return () => {
-      window.removeEventListener('touchstart', handleUserGesture);
-      window.removeEventListener('click', handleUserGesture);
-    };
-  }, [isMuted]);
-
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -110,82 +87,55 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
     }
   }
 
-  const handleFullscreen = () => {
-    const video = videoRef.current;
-    if (!video) return;
-  
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      video.requestFullscreen().catch(err => {
-        console.error("Fullscreen error:", err);
-      });
-    }
-  };
-  
   return (
-    <div ref={containerRef} className="w-[calc(100vw-32px)] h-[calc(100vh-32px)] bg-black relative m-[16px]">
-  
-      <MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
-  
-      {/* 🎥 Background video */}
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        src={videoSrc}
-        loop
-        muted
-        playsInline
-      />
-  
-      {/* 🏷 Centered Title */}
-      <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-center z-20 page-title">
-        {title}
-      </h1>
-  
-      <a href={logoLink}>
-        <img
-          className="absolute top-8 left-8 mix-blend-exclusion"
-          src={logoSrc}
-          alt="Logo"
-          width={width}
-          height={height}
-        />
-      </a>
-  
+    <div ref={containerRef} className="w-[calc(100vw-64px)] h-[calc(100vh-64px)] bg-black relative m-[32px]">
+
+<MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
+
+{/* 🎥 Background video */}
+<video
+  ref={videoRef}
+  className="w-full h-full object-cover"
+  src="/videoplayback.mp4"
+  loop
+  muted
+  playsInline
+/>
+
+
+
+    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
+      
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-  <div className="flex justify-between items-center px-4">
-    {/* Play/Pause */}
-    <button
-      className="p-0 cursor-line"
-      onClick={togglePlay}
-      aria-label={isPlaying ? "Pause" : "Play"}
-    >
-      <span className="controls">{isPlaying ? "Pausar" : "Tocar"}</span>
-    </button>
+      <div className="flex justify-between">
+        <button className="cursor-pointer p-0"
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause" : "Play"}
+        >
+          {isPlaying ? (
+            // Pause icon
+            <span class="controls">Pausar</span>
+          ) : (
+            // Play icon
+            <span class="controls">Tocar</span>
+          )}
+        </button>
+        <button className="cursor-pointer p-0"
+          onClick={toggleMute}
+          aria-label={isMuted ? "Unmute" : "Mute"}
+        >
+          {isMuted ? (
+            // Volume muted icon
+            <span class="controls">Open Sound</span>
+          ) : (
+            // Volume icon
+            <span class="controls">Selenciar</span>
+          )}
+        </button>
 
-    {/* Mute/Unmute */}
-    <button
-      className="p-0 cursor-line"
-      onClick={toggleMute}
-      aria-label={isMuted ? "Unmute" : "Mute"}
-    >
-      <span className="controls">{isMuted ? "Open Sound" : "Selenciar"}</span>
-    </button>
-
-    {/* Fullscreen */}
-    <button
-      className="p-0 cursor-line"
-      onClick={handleFullscreen}
-      aria-label="Fullscreen"
-    >
-      <span className="controls">Fullscreen</span>
-    </button>
-  </div>
-</div>
-
+      </div>
+      </div>
     </div>
-  );
-  
+  )
 }

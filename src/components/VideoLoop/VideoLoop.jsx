@@ -80,6 +80,7 @@ const VideoHoverPreview = ({
 
   <Link to={fullProjectLink} className="block" style={{ width: customWidth }}>
     <div 
+      data-cursor="view"
       className="relative w-full h-full video-container"
       style={{
         cursor: isHovering ? 'url("/custom-cursor.svg") 16 16, auto' : 'default',

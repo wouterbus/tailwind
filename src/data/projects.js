@@ -12,7 +12,7 @@ const projects = [
       description: 'A captivating reel showcasing the essence of Forasteira.',
       order: 1,
       credits: [
-        { role: "Role 1", name: "Name" },
+        { role: "Owner", name: "Lua Hora" },
         { role: "Role 2", name: "Name" },
         { role: "Role 3", name: "Name" },
         { role: "Role 4", name: "Name" },

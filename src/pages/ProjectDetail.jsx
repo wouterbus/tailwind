@@ -23,17 +23,6 @@ export default function ProjectDetail() {
         <h2>{project.title}</h2>
         <p>{project.description}</p>
 
-        <div className="preview">
-          <VideoHoverPreview
-            videoSrc={project.videoSrc}
-            fullProjectLink={`/projects/${project.id}`}
-            thumbnailAlt={project.thumbnailAlt}
-            headline={project.title}
-            customWidth={project.customWidth}
-            aspectRatio={project.aspectRatio}
-          />
-        </div>
-
         {project.credits && project.credits.length > 0 && (
           <section className="credits">
             <h3>Credits</h3>
