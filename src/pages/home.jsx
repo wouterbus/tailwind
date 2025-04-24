@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from '../components/Hero';
 import VideoHoverPreview from '../components/VideoLoop/VideoLoop';
+import ContactUs from '../components/ContactUs/ContactUs';
 import projects from '../data/projects';
 
 export default function Home() {
@@ -22,6 +23,11 @@ export default function Home() {
           />
         ))}
       </div>
+            {/* 👇 Add Contact Us as a homepage section */}
+            <section id="contact">
+        <h2 className="text-3xl font-bold mb-8 text-center">Let’s Work Together</h2>
+        <ContactUs />
+      </section>
     </main>
   );
 }
