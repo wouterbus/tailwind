@@ -3,6 +3,7 @@ import CustomCursor from './CustomCursor'
 import hamburgerLine from '../assets/hamburger-line.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuOverlay from './MenuOverlay'
+import '../../src/components/Hero/Hero.css';
 
 export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg" }) {
 
@@ -111,31 +112,30 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-      <div className="flex justify-between">
-        <button className="cursor-pointer p-0"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause" : "Play"}
-        >
-          {isPlaying ? (
-            // Pause icon
-            <span class="controls">Pausar</span>
-          ) : (
-            // Play icon
-            <span class="controls">Tocar</span>
-          )}
-        </button>
-        <button className="cursor-pointer p-0"
-          onClick={toggleMute}
-          aria-label={isMuted ? "Unmute" : "Mute"}
-        >
-          {isMuted ? (
-            // Volume muted icon
-            <span class="controls">Open Sound</span>
-          ) : (
-            // Volume icon
-            <span class="controls">Selenciar</span>
-          )}
-        </button>
+      <div className="flex justify-between w-[calc(100%-40px)] mx-auto">
+      <button className="cursor-pointer p-0" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+  {isPlaying ? (
+    // Desktop: Text "Pausar", Mobile: Icon for Pause
+    <span className="controls desktop:text">Pausar</span>
+  ) : (
+    // Desktop: Text "Tocar", Mobile: Icon for Play
+    <span className="controls desktop:text">Tocar</span>
+  )}
+  {/* Mobile: Icon for Play/Pause */}
+  <img className="mobile-icon" src={isPlaying ? "/icons/Pause.svg" : "/icons/Play.svg"} alt="Play/Pause Icon" />
+</button>
+
+<button className="cursor-pointer p-0" onClick={toggleMute} aria-label={isMuted ? "Unmute" : "Mute"}>
+  {isMuted ? (
+    // Desktop: Text "Open Sound", Mobile: Icon for Mute
+    <span className="controls desktop:text">Open Sound</span>
+  ) : (
+    // Desktop: Text "Selenciar", Mobile: Icon for Mute
+    <span className="controls desktop:text">Selenciar</span>
+  )}
+  {/* Mobile: Icon for Mute/Unmute */}
+  <img className="mobile-icon" src={isMuted ? "/icons/Off.svg" : "/icons/On.svg"} alt="Mute/Unmute Icon" />
+</button>
 
       </div>
       </div>

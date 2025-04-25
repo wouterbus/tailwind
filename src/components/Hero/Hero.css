@@ -1,0 +1,17 @@
+.controls {
+    display: none; 
+  }
+  
+  .mobile-icon {
+    display: block;
+  }
+  
+  @media (min-width: 768px) {
+    .controls.desktop\:text {
+      display: inline-block; 
+    }
+  
+    .mobile-icon {
+      display: none;
+    }
+  }
