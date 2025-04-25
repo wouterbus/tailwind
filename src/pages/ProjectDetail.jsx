@@ -14,7 +14,6 @@ export default function ProjectDetail() {
     <main className="project-detail">
       <Hero
         title={project.title}
-        width="180"
         logoSrc="/logo-horizontal.svg"
         videoSrc={project.videoSrc}
       />

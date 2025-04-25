@@ -21,6 +21,17 @@
   padding: 0;
 }
 
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #FD575A 0%, #8D52FD 100%);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
 span.controls {
   color: #FFF;
   font-family: "Founders Grotesk";
@@ -43,18 +54,6 @@ a {
 
 a {
   font-size: 50px;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background: linear-gradient(270deg, #FD575A 0%, #8D52FD 100%);
-  background-image: url('bg-gradient.svg');
-  background-size: cover;
-  overflow-x: hidden;
 }
 
 button {
@@ -136,3 +135,14 @@ button:focus-visible {
   pointer-events: none;
 }
 
+.projects-home {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 2rem 1rem;
+}
+
+.video-wrapper {
+  position: relative;
+  transition: transform 0.3s ease;
+}

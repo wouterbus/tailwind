@@ -1,123 +1,86 @@
 import { useState, useRef, useEffect } from 'react';
-import './VideoLoop.css';
-import { div } from 'framer-motion/client';
 import { Link } from 'react-router-dom';
+import './VideoLoop.css';
 
-
-const VideoHoverPreview = ({
-  videoSrc,
-  fullProjectLink,
-  thumbnailAlt = "Project thumbnail",
-  headline,
-  aspectRatio = "16/9", // default to horizontal
-  customWidth = "100%", 
-  customHeight = "auto",
-  alignment = "center" 
-}) => {
+const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project thumbnail", headline }) => {
   const [isHovering, setIsHovering] = useState(false);
   const videoRef = useRef(null);
   const thumbnailRef = useRef(null);
 
-  // Handle video playback based on hover state
   useEffect(() => {
-    const videoElement = videoRef.current;
-    
-    if (!videoElement) return;
-    
-    if (isHovering) {
-      // When hovering, play the video
-      videoElement.currentTime = 0;
-      videoElement.play()
-        .catch(err => console.error("Error playing video:", err));
-    } else {
-      // When not hovering, pause the video
-      videoElement.pause();
-      videoElement.currentTime = 0;
-    }
-    
-    // Set up loop for the first 4 seconds
-    const handleTimeUpdate = () => {
-      if (videoElement.currentTime >= 4) {
-        videoElement.currentTime = 0;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const loopPreview = () => {
+      if (video.currentTime >= 4) {
+        video.currentTime = 0;
       }
     };
-    
-    videoElement.addEventListener('timeupdate', handleTimeUpdate);
-    
+
+    video.addEventListener('timeupdate', loopPreview);
+
+    if (isHovering) {
+      video.currentTime = 0;
+      video.play().catch((err) => console.error("Error playing video:", err));
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+
     return () => {
-      videoElement.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('timeupdate', loopPreview);
     };
   }, [isHovering]);
 
-  // Capture first frame as thumbnail when video is loaded
   const handleVideoLoaded = () => {
-    const videoElement = videoRef.current;
-    const thumbnailElement = thumbnailRef.current;
-    
-    if (videoElement && thumbnailElement) {
-      // Set video to the first frame
-      videoElement.currentTime = 0;
-      
-      // Draw the first frame on the canvas once it's ready
-      videoElement.addEventListener('seeked', () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = videoElement.videoWidth;
-        canvas.height = videoElement.videoHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-        
-        // Set the canvas image as the src for the thumbnail image
-        thumbnailElement.src = canvas.toDataURL();
-      }, { once: true });
-    }
+    const video = videoRef.current;
+    const img = thumbnailRef.current;
+    if (!video || !img) return;
+
+    const drawThumbnail = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      img.src = canvas.toDataURL();
+    };
+
+    video.currentTime = 0;
+    video.addEventListener('seeked', drawThumbnail, { once: true });
   };
 
   return (
-    <>
-  {headline && (
-    <h3 className="mb-2 font-semibold">{headline}</h3>
-  )}
-
-  <Link to={fullProjectLink} className="block" style={{ width: customWidth }}>
-    <div 
-      data-cursor="view"
-      className="relative w-full h-full video-container"
-      style={{
-        cursor: isHovering ? 'url("/custom-cursor.svg") 16 16, auto' : 'default',
-        aspectRatio,
-        height: customHeight || 'auto',
-      }}
+    <div
+    data-cursor="view"
+      className="video-container"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Thumbnail Image (First Frame) */}
-      <img 
-        ref={thumbnailRef} 
-        alt={thumbnailAlt} 
-        className="absolute top-0 left-0 w-full h-full object-cover" 
-        style={{ opacity: isHovering ? 0 : 1 }}
-      />
-      
-      {/* Video Element */}
-      <video 
-        ref={videoRef}
-        src={videoSrc}
-        className="absolute w-full h-full object-cover video"
-        muted
-        preload="auto"
-        playsInline
-        onLoadedMetadata={handleVideoLoaded}
-        style={{ opacity: isHovering ? 1 : 0 }}
-      />
-
-      {isHovering && (
-        <div className="overlay"></div>
-      )}
+      <Link to={fullProjectLink}>
+        <div className="video-inner">
+          <img
+            ref={thumbnailRef}
+            alt={thumbnailAlt}
+            className="thumbnail"
+            style={{ opacity: isHovering ? 0 : 1 }}
+          />
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            className="video"
+            muted
+            preload="auto"
+            playsInline
+            onLoadedMetadata={handleVideoLoaded}
+            style={{ opacity: isHovering ? 1 : 0 }}
+          />
+          {isHovering && <div className="overlay" />}
+        </div>
+      </Link>
+      {headline && <h3 className="headline">{headline}</h3>}
     </div>
-  </Link>
-</>
   );
-  
 };
 
 export default VideoHoverPreview;

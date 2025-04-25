@@ -8,7 +8,7 @@ export default function Portfolio() {
 
   return (
     <main className="p-8">
-      <Hero title="Portfolio" width="180" logoSrc="/logo-horizontal.svg" videoSrc="/videos/quemsomos.mp4" />
+      <Hero title="Portfolio" logoSrc="/logo-horizontal.svg" videoSrc="/videos/quemsomos.mp4" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {sortedProjects.map((p) => (
   <VideoHoverPreview

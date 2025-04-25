@@ -4,7 +4,8 @@ import hamburgerLine from '../assets/hamburger-line.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuOverlay from './MenuOverlay'
 
-export default function Hero() {
+export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg" }) {
+
   const videoRef = useRef(null)
   const containerRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -104,7 +105,9 @@ export default function Hero() {
 
 
 
-    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src="/logo-hero.svg"></img>
+    <a href="/">
+    <img className="absolute top-8 left-8 mix-blend-exclusion w-4/12" src={logoSrc} alt="Logo" />
+    </a>
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>

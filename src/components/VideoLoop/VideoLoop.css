@@ -1,22 +1,48 @@
+.video-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
 .video-container {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  width: 100%;
-  overflow: hidden;
   background-color: black;
   position: relative;
+}
+
+.video-inner {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 = 0.5625) */
   overflow: hidden;
+}
+
+.video,
+.thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.headline {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 .video-container img {
   mix-blend-mode:luminosity;
-}
-
-.video {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .overlay {
@@ -39,4 +65,17 @@
 
 .video-container:hover .overlay {
   opacity: 1;
+}
+
+
+@media (max-width: 767px) {
+  .video-grid {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .headline {
+    font-size: 1.1rem;
+    text-align: center;
+  }
 }
