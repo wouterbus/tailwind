@@ -31,8 +31,8 @@ export default function Home() {
         <VideoHoverPreview
           videoSrc={project.videoSrc}
           fullProjectLink={`/projects/${project.id}`}
-          thumbnailAlt={project.thumbnailAlt}
-          headline={project.title}
+          title={project.title}
+          description={project.description}
         />
       </div>
     );
@@ -41,7 +41,7 @@ export default function Home() {
 
 
       <section id="contact">
-        <h2 className="text-3xl font-bold mb-8 text-center">Let’s Work Together</h2>
+        <h2 className="text-3xl font-bold mb-8 text-left">Form</h2>
         <ContactUs />
       </section>
     </main>

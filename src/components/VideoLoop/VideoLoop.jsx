@@ -4,8 +4,22 @@ import './VideoLoop.css';
 
 const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project thumbnail", headline }) => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
   const thumbnailRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // you can adjust this threshold if needed
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -19,7 +33,7 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
 
     video.addEventListener('timeupdate', loopPreview);
 
-    if (isHovering) {
+    if (isHovering || isMobile) {
       video.currentTime = 0;
       video.play().catch((err) => console.error("Error playing video:", err));
     } else {
@@ -30,7 +44,7 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
     return () => {
       video.removeEventListener('timeupdate', loopPreview);
     };
-  }, [isHovering]);
+  }, [isHovering, isMobile]);
 
   const handleVideoLoaded = () => {
     const video = videoRef.current;
@@ -51,11 +65,12 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
   };
 
   return (
+    <div>
     <div
-    data-cursor="view"
+      data-cursor="view"
       className="video-container"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseEnter={() => !isMobile && setIsHovering(true)}
+      onMouseLeave={() => !isMobile && setIsHovering(false)}
     >
       <Link to={fullProjectLink}>
         <div className="video-inner">
@@ -63,7 +78,7 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
             ref={thumbnailRef}
             alt={thumbnailAlt}
             className="thumbnail"
-            style={{ opacity: isHovering ? 0 : 1 }}
+            style={{ opacity: (isHovering || isMobile) ? 0 : 1 }}
           />
           <video
             ref={videoRef}
@@ -73,11 +88,12 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
             preload="auto"
             playsInline
             onLoadedMetadata={handleVideoLoaded}
-            style={{ opacity: isHovering ? 1 : 0 }}
+            style={{ opacity: (isHovering || isMobile) ? 1 : 0 }}
           />
-          {isHovering && <div className="overlay" />}
+          {(isHovering || isMobile) && <div className="overlay" />}
         </div>
       </Link>
+    </div>
       {headline && <h3 className="headline">{headline}</h3>}
     </div>
   );
