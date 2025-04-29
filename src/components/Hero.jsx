@@ -90,7 +90,7 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
   }
 
   return (
-    <div ref={containerRef} className="w-[calc(100vw-64px)] h-[calc(100vh-64px)] bg-black relative m-[32px]">
+    <div ref={containerRef} className="w-[calc(100vw-48px)] h-[calc(100vh-48px)] bg-black relative m-[24px]">
 
 <MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
 
@@ -112,7 +112,7 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-      <div className="flex justify-between w-[calc(100%-40px)] mx-auto">
+      <div className="flex justify-between max-w-sm md:max-w-[calc(100%-20px)] mx-auto">
       <button className="cursor-pointer p-0" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
   {isPlaying ? (
     // Desktop: Text "Pausar", Mobile: Icon for Pause
