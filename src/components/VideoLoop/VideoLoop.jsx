@@ -60,7 +60,7 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
       img.src = canvas.toDataURL();
     };
 
-    video.currentTime = 0;
+    video.currentTime = 3;
     video.addEventListener('seeked', drawThumbnail, { once: true });
   };
 

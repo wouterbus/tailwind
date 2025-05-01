@@ -17,18 +17,9 @@ export default function MenuOverlay({ isOpen, toggle }) {
       <div className="absolute top-0 right-0 z-50">
   <button
     onClick={toggle}
-    className="w-[160px] h-[160px] flex items-center justify-center bg-black border-none cursor-pointer relative"
+    className="w-[100px] h-[100px] flex items-center justify-center bg-black border-none cursor-pointer relative"
   >
     <div className="relative w-[200px] h-[200px] flex items-center justify-center menu-overlay">
-
-      {/* 🔄 Rotating background SVG */}
-      <motion.img
-  src="/hamburger-spin-bg.svg"
-  alt="rotating background"
-  className="absolute z-[-1] w-[240px] h-[240px]"
-  animate={{ rotate: 360 }}
-  transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
-/>
 
       {/* 🍔 Hamburger / Close Icon */}
       {isOpen ? (

@@ -42,10 +42,6 @@ span.controls {
   margin: 0 32px;
 }
 
-span.controls:hover {
-  border-bottom: 5px solid white;
-}
-
 a {
   color: #646cff;
   text-decoration: inherit;

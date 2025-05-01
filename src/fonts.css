@@ -1,3 +1,5 @@
+/* ---------- LARKEN FONT FACE ----------- */
+
 @font-face {
     font-family: 'Founders Grotesk';
     src: url('/fonts/Founders_Grotesk/FoundersGrotesk-Regular.otf') format('opentype');
@@ -89,4 +91,105 @@
     font-weight: 700;
     font-style: normal;
   }
+
+/* ---------- LARKEN FONT FACE ----------- */
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-ExtraBoldItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('/fonts/LarkenDEMO/LarkenDEMO-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
   

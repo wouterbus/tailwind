@@ -112,8 +112,11 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
       
       {/* Custom Controls */}
       <div className='absolute w-full bottom-4'>
-      <div className="flex justify-between max-w-sm md:max-w-[calc(100%-20px)] mx-auto">
-      <button className="cursor-pointer p-0" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+      <div className="video-controls-wrapper">
+      <button className="video-controls play" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+      {/* Mobile: Icon for Play/Pause */}
+      <img className="mobile-icon" src={isPlaying ? "/icons/Pause.svg" : "/icons/Play.svg"} alt="Play/Pause Icon" />
+  
   {isPlaying ? (
     // Desktop: Text "Pausar", Mobile: Icon for Pause
     <span className="controls desktop:text">Pausar</span>
@@ -121,11 +124,9 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo
     // Desktop: Text "Tocar", Mobile: Icon for Play
     <span className="controls desktop:text">Tocar</span>
   )}
-  {/* Mobile: Icon for Play/Pause */}
-  <img className="mobile-icon" src={isPlaying ? "/icons/Pause.svg" : "/icons/Play.svg"} alt="Play/Pause Icon" />
 </button>
 
-<button className="cursor-pointer p-0" onClick={toggleMute} aria-label={isMuted ? "Unmute" : "Mute"}>
+<button className="video-controls" onClick={toggleMute} aria-label={isMuted ? "Unmute" : "Mute"}>
   {isMuted ? (
     // Desktop: Text "Open Sound", Mobile: Icon for Mute
     <span className="controls desktop:text">Open Sound</span>

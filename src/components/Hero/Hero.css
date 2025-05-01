@@ -1,4 +1,30 @@
-.controls {
+.video-controls-wrapper {
+    display:flex ;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin: 1.25rem 2rem 0.625rem 2rem;
+}
+
+.video-controls {
+  display:flex ;
+  align-items: flex-start;
+}
+
+.video-controls span {
+  color: #FFF;
+  margin: 0;
+  padding: 0;  
+  font-family: "Larken DEMO";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.055rem;
+  text-transform: uppercase;
+}
+
+.controls, .controls.desktop\:text {
     display: none; 
   }
   
@@ -9,9 +35,11 @@
   @media (min-width: 768px) {
     .controls.desktop\:text {
       display: inline-block; 
+      height: max-content;
+      margin-top: .25rem;
     }
-  
-    .mobile-icon {
-      display: none;
-    }
+
+.video-controls {
+  gap: 1rem
+}
   }
