@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from '../components/Hero';
-import VideoHoverPreview from '../components/VideoLoop/VideoLoop';
-import ContactUs from '../components/ContactUs/ContactUs';
-import projects from '../data/projects';
+import Hero from "@/components/Hero/Hero";
+import VideoHoverPreview from "@/components/VideoLoop/VideoLoop";
+import ContactUs from "@/components/ContactUs/ContactUs";
+import projects from "@/data/projects";
 
 const layoutVariants = [
   { width: '40%', marginLeft: '0%' },
@@ -40,7 +40,7 @@ export default function Home() {
 </div>
 
 
-      <section id="contact">
+      <section id="footer">
         <ContactUs />
       </section>
     </main>

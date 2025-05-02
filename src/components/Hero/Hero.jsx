@@ -1,9 +1,8 @@
-import { useRef, useState, useEffect } from 'react'
-import CustomCursor from './CustomCursor'
-import hamburgerLine from '../assets/hamburger-line.svg'
-import { AnimatePresence, motion } from 'framer-motion'
-import MenuOverlay from './MenuOverlay'
-import '../../src/components/Hero/Hero.css';
+import { useRef, useState, useEffect } from 'react';
+import hamburgerLine from "@/assets/hamburger-line.svg";
+import { AnimatePresence, motion } from 'framer-motion';
+import MenuOverlay from '@/components/MenuOverlay';
+import "@/components/Hero/Hero.css";
 
 export default function Hero({ videoSrc = "/videoplayback.mp4", logoSrc = "/logo-hero.svg" }) {
 

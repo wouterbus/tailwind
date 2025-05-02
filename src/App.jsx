@@ -1,16 +1,16 @@
 import '../styles/globals.css';
-import './fonts.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import "@/fonts.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ScrollToTop from './components/ScrollToTop';
-import CustomCursor from './components/CustomCursor';
+import ScrollToTop from "@/components/ScrollToTop";
+import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
-import Home from './pages/home';
-import QuemSomos from './pages/quem-somos';
-import ComoTudoAcontece from './pages/como-tudo-acontece';
-import Portfolio from './pages/portfolio';
-import Contato from './pages/contato';
-import ProjectDetail from './pages/ProjectDetail'; // 🆕 Dynamic project route
+import Home from "@/pages/home";
+import QuemSomos from "@/pages/quem-somos";
+import ComoTudoAcontece from "@/pages/como-tudo-acontece";
+import Portfolio from "@/pages/portfolio";
+import Contato from "@/pages/contato";
+import ProjectDetail from "@/pages/ProjectDetail";
 
 function App() {
   return (

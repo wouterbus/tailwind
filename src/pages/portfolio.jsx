@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from '../components/Hero';
-import VideoHoverPreview from '../components/VideoLoop/VideoLoop';
-import projects from '../data/projects';
+import Hero from "@/components/Hero/Hero";
+import VideoHoverPreview from "@/components/VideoLoop/VideoLoop";
+import projects from "@/data/projects";
 
 export default function Portfolio() {
   const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
