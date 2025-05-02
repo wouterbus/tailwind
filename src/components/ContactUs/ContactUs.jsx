@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './ContactUs.css';
+import '../../fonts.css';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -20,32 +21,31 @@ export default function ContactUs() {
   return (
     <div className="contact-section">
       <form onSubmit={handleSubmit} className="contact-form">
+    <div className="input">
+    <div className="form-field">
+    <label htmlFor="name" >Nome</label>
         <input
           type="text"
           name="name"
-          placeholder="Your name"
           value={formData.name}
           onChange={handleChange}
           required
         />
+    </div>
+  <div className="form-field">
+  <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
-          placeholder="Your email"
           value={formData.email}
           onChange={handleChange}
           required
         />
-        <textarea
-          name="message"
-          placeholder="Your message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <button type="submit">
-          <span>Submit</span>
-            <img src="/starburst-form.svg" alt="" />
+  </div>
+    </div>
+        <button className="submit" type="submit">
+        <img className='starburst' src="/send-icon-form.svg" width={128} alt="" />
+          <span>Enviar</span>
         </button>
       </form>
     </div>

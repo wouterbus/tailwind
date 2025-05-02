@@ -12,7 +12,7 @@ const layoutVariants = [
 ];
 
 export default function Home() {
-  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 6); // ⬅ get 3 for a full layout
+  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 6); 
 
   return (
     <main className="p-8">
@@ -41,7 +41,6 @@ export default function Home() {
 
 
       <section id="contact">
-        <h2 className="text-3xl font-bold mb-8 text-left">Form</h2>
         <ContactUs />
       </section>
     </main>
