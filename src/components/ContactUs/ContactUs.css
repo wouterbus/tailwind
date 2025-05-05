@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   padding: 24px;
   gap: 24px;
+  width: 100vw;
 }
 
 .form-field {
