@@ -1,9 +1,28 @@
+import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './VideoLoop.css';
 
-const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project thumbnail", headline }) => {
-  const [isHovering, setIsHovering] = useState(false);
+function highlightWordInTitle(title, wordToWrap) {
+  if (!title || !wordToWrap) return title;
+  const parts = title.split(new RegExp(`(${wordToWrap})`, 'gi'));
+  return parts.map((part, index) =>
+    part.toLowerCase() === wordToWrap.toLowerCase() ? (
+      <span key={index} className="highlight">{part}</span>
+    ) : (
+      <React.Fragment key={index}>{part}</React.Fragment>
+    )
+  );
+}
+
+const VideoHoverPreview = ({
+  videoSrc,
+  fullProjectLink,
+  thumbnailAlt = "Project thumbnail",
+  title,
+  description,
+  highlightWord
+}) => {  const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
   const thumbnailRef = useRef(null);
@@ -94,7 +113,12 @@ const VideoHoverPreview = ({ videoSrc, fullProjectLink, thumbnailAlt = "Project 
         </div>
       </Link>
     </div>
-      {headline && <h3 className="headline">{headline}</h3>}
+    <div className="video-info">
+    <h3 className="video-title">
+    {highlightWordInTitle(title, highlightWord)}
+    </h3>
+      {description && <p className="video-description">{description}</p>}
+    </div>
     </div>
   );
 };

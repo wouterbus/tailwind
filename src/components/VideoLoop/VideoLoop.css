@@ -8,12 +8,23 @@
 }
 
 .video-container {
-  background-color: black;
   position: relative;
+}
+
+.video-container h3 {
+  margin-top: 32px;
+  line-height: 130%;
+  text-transform: uppercase;
+}
+
+.video-container h3 span {
+  color: var(--purple);
+  mix-blend-mode: color-dodge;
 }
 
 .video-inner {
   position: relative;
+  background-color: var(--black);
   padding-top: 56.25%; /* 16:9 ratio (9 / 16 = 0.5625) */
   overflow: hidden;
 }
@@ -84,4 +95,20 @@
   .overlay {
     opacity: 1;
   }
+  .video-container {
+    width: 100%!important;
+    margin-left: auto!important;
+  }
 }
+
+.video-info {
+  background-color: transparent;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: calc(100vw - 48px);
+  margin: 24px auto;
+}
+

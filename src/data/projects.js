@@ -2,12 +2,13 @@ const projects = [
   {
     id: '001-reel-forasteira',
     title: 'Reel Forasteira',
+    highlightWord: 'Forasteira',
     videoSrc: '/videos/quemsomos.mp4',
     thumbnailAlt: 'Reel Forasteira',
     fullProjectLink: '/projects/001-reel-forasteira',
     customWidth: '100%',
     aspectRatio: '16/9',
-    description: 'A captivating reel showcasing the essence of Forasteira.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
     order: 1,
     credits: [
       { role: "Owner", name: "Lua Hora" },
@@ -18,13 +19,14 @@ const projects = [
   },
   {
     id: '002-digital-vibes',
-    title: 'Digital Vibes',
+    title: 'This is a Highlighted Text',
+    highlightWord: 'Highlighted',
     videoSrc: '/videos/videoplayback.mp4',
     thumbnailAlt: 'Digital Vibes',
     fullProjectLink: '/projects/002-digital-vibes',
     customWidth: '100%',
     aspectRatio: '16/9',
-    description: 'A colorful and vibrant showcase of digital motion.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
     order: 2,
     credits: [
       { role: "Role", name: "Name" },
@@ -37,13 +39,14 @@ const projects = [
   },
   {
     id: '003-honey-mustard',
-    title: 'Honey Mustard',
+    title: 'This is a Highlighted Text',
+    highlightWord: 'Text',
     videoSrc: '/videos/videoplayback.mp4',
     thumbnailAlt: 'Honey Mustard',
     fullProjectLink: '/projects/003-honey-mustard',
     customWidth: '100%',
     aspectRatio: '16/9',
-    description: 'A spicy-sweet creative project blend.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
     order: 3,
     credits: [
       { role: "Director", name: "Hilary Hilton" },

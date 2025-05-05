@@ -37,12 +37,12 @@ export default function MenuOverlay({ isOpen, toggle }) {
   return (
     <>
       {/* Toggle button */}
-      <div className="absolute top-0 right-0 z-50">
+      <div className="absolute top-3 right-0 z-50">
   <button
     onClick={toggle}
     className="w-[100px] h-[100px] flex items-center justify-center bg-black border-none cursor-pointer relative"
   >
-    <div className="relative w-[200px] h-[200px] flex items-center justify-center menu-overlay">
+    <div className="relative w-[100px] h-[100px] flex items-center justify-center menu-overlay">
 
       {/* 🍔 Hamburger / Close Icon */}
       {isOpen ? (

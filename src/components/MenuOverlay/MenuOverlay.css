@@ -1,17 +1,14 @@
-a {
+nav a {
     color: white;
     font-size: 50px;
-    line-height: auto;
     text-transform: uppercase;
-    height: 76px;
     letter-spacing: -0.88px;
 }
 
-a:hover {
+nav a:hover {
     color: var(--purple);
     font-family: "Larken DEMO";
     font-size: 44px;
-    margin-top: -22px;
 }
 
 nav {
@@ -19,3 +16,21 @@ nav {
     position: absolute;
     left: 20%;
 }
+
+@media (max-width:768px) {
+    nav a {
+        font-size: 28px;
+    }
+
+nav a:hover {
+    font-size: 24px;
+}
+}
+
+@media (hover: none) and (pointer: coarse) {
+    nav a:hover {
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }

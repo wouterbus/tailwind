@@ -3,12 +3,17 @@ import Hero from "@/components/Hero/Hero";
 import VideoHoverPreview from "@/components/VideoLoop/VideoLoop";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import projects from "@/data/projects";
+import ScrollingText from '@/components/ScrollingText/ScrollingText';
 
 const layoutVariants = [
-  { width: '40%', marginLeft: '0%' },
-  { width: '60%', marginLeft: 'auto' },
-  { width: '50%', marginLeft: '10%' },
-  { width: '70%', marginLeft: '5%' },
+  { width: '70%', marginLeft: '0%' },
+  { width: '78%', marginLeft: 'auto' },
+  { width: '66%', marginLeft: '10%' },
+  { width: '92%', marginLeft: '5%' },
+  { width: '74%', marginLeft: '2%' },
+  { width: '82%', marginLeft: 'auto' },
+  { width: '78%', marginLeft: '3%' },
+  { width: '90%', marginLeft: '8%' },
 ];
 
 export default function Home() {
@@ -17,6 +22,7 @@ export default function Home() {
   return (
     <main className="p-8">
       <Hero title="" width="32%" videoSrc="/videos/videoplayback.mp4" />
+      <ScrollingText />
 
       <div 
       className="video-grid">
@@ -33,10 +39,19 @@ export default function Home() {
           fullProjectLink={`/projects/${project.id}`}
           title={project.title}
           description={project.description}
+          highlightWord={project.highlightWord}
         />
       </div>
     );
   })}
+      </div>
+      <div className="container">
+  <button
+    className="primary-btn"
+    onClick={() => window.location.href = "/portfolio"}
+  >
+    Ver <span>Todos</span>
+  </button>
 </div>
     </main>
   );

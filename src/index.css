@@ -8,6 +8,8 @@
   --black : #1D1D1D;
 
   --primary-gradient : linear-gradient(270deg, #FD575A 0%, #8D52FD 100%);
+  --secondary-gradient : linear-gradient(270deg, #00FFFF 0%, #8D52FD 100%);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
