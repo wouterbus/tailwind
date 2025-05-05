@@ -20,6 +20,7 @@ label {
   margin: 0;
   padding: 0;
   font-weight: 700;
+  color: var(--white);
 }
   
   .contact-form input {
@@ -56,7 +57,7 @@ label {
   }
   
   .contact-form button {
-    background:  darkorchid;
+    background:  var(--purple);
     color: white;
     font-weight: bold;
     font-size: 2rem;
@@ -68,12 +69,16 @@ label {
     border-radius: 100px 100px 0 0;
     height: max-content;
     overflow: hidden;
+    max-height: inherit;
+    padding: 0;
   }
 
-button span {
+button.submit span {
+  font-size: 32px;
     padding: 16px;
-    letter-spacing: -2px;
+    letter-spacing: -0.64px;
     font-weight: 700;
+    width: 100%;
 }
   
   .contact-form .icon {
@@ -86,7 +91,7 @@ button span {
   }
 
   .submit span {
-    background-color: darkorchid;
+    background-color: var(--purple);
     color: white;
     font-family: "Larken DEMO";
     text-transform: uppercase;
@@ -95,8 +100,8 @@ button span {
   }
 
 img.starburst {
-    margin-bottom: -50%;
-    margin-top: 1rem;
+    margin: 1rem;
+    margin-bottom: -35%;
     animation: rotate 12s linear infinite;
 }
 
@@ -106,5 +111,16 @@ img.starburst {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width:768px) {
+  .contact-form {
+    padding: 0;
+  }
+  .input {
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    gap: 32px;
   }
 }

@@ -1,0 +1,11 @@
+.footer {
+    background-color: var(--black);
+    padding: 60px 0;
+}
+
+.footer h1 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px;
+    line-height: 100%;
+}

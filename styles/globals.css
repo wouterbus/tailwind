@@ -6,3 +6,106 @@
       animation: spin 6s linear infinite;
     }
   }
+
+  h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--white);
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+button {
+  letter-spacing: -0.055rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+h1 span {
+  font-size: 4.375rem;
+  font-family: "Larken Demo", serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 3.125rem;
+  font-weight: 600;
+}
+
+h2 span {
+  font-size: 2.75rem;
+  font-family: "Larken Demo", serif;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+h3 span {
+  font-size: 2rem;
+  font-family: "Larken Demo", serif;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.625rem;
+  font-weight: 300;
+}
+
+a {
+  font-size: inherit;
+}
+
+button {
+  border: 1px solid transparent;
+  color: var(--white);
+  font-family: "Founders Grotesk", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  padding: 1rem;
+  max-height: 64px;
+}
+
+button span {
+  font-family: "Larken DEMO", serif;
+  font-size: 1.575rem;
+  font-weight: 800;
+  padding: 0;
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+.primary-btn {
+  background-color: var(--black);
+}
+
+.primary-btn span {
+  color: var(--purple);
+}
+
+@media (max-width:768px) {
+  h1 {
+    font-size: 3.125rem;
+  }
+  
+  h1 span {
+    font-size: 2.75rem;
+  }
+}

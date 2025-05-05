@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import Hero from "@/components/Hero/Hero";
-import VideoHoverPreview from "@/components/VideoLoop/VideoLoop";
 import projects from "@/data/projects";
 import "@/pages/ProjectDetail.css";
 

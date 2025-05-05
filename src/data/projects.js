@@ -11,7 +11,7 @@ const projects = [
     order: 1,
     credits: [
       { role: "Owner", name: "Lua Hora" },
-      { role: "Role 2", name: "Name" },
+      { role: "Owner", name: "Leticia Arpa" },
       { role: "Role 3", name: "Name" },
       { role: "Role 4", name: "Name" },
     ]
@@ -27,6 +27,8 @@ const projects = [
     description: 'A colorful and vibrant showcase of digital motion.',
     order: 2,
     credits: [
+      { role: "Role", name: "Name" },
+      { role: "Role", name: "Name" },
       { role: "Role", name: "Name" },
       { role: "Role", name: "Name" },
       { role: "Role", name: "Name" },

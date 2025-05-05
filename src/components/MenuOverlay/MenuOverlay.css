@@ -1,0 +1,21 @@
+a {
+    color: white;
+    font-size: 50px;
+    line-height: auto;
+    text-transform: uppercase;
+    height: 76px;
+    letter-spacing: -0.88px;
+}
+
+a:hover {
+    color: var(--purple);
+    font-family: "Larken DEMO";
+    font-size: 44px;
+    margin-top: -22px;
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    left: 20%;
+}

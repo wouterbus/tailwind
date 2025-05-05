@@ -1,6 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom'; // ✅ React Router Link
-import hamburgerLine from '../assets/hamburger-line.svg';
+import hamburgerLine from '@/assets/hamburger-line.svg';
+import "@/components/MenuOverlay/MenuOverlay.css"
+import starburst from '/hamburger-spin-bg.svg';
+import { useEffect } from 'react';
 
 export default function MenuOverlay({ isOpen, toggle }) {
   const menuItems = [
@@ -10,6 +13,26 @@ export default function MenuOverlay({ isOpen, toggle }) {
     { label: 'Portfolio', path: '/portfolio' },
     { label: 'Contato', path: '/contato' }
   ];
+
+  useEffect(() => {
+    if (!isOpen) return;
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+  
+      if (scrollY > viewportHeight * 0.2) {
+        toggle(); // close the menu
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isOpen, toggle]);
+  
 
   return (
     <>
@@ -64,15 +87,13 @@ export default function MenuOverlay({ isOpen, toggle }) {
   </button>
 </div>
 
-
-      {/* Fullscreen menu overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             className="absolute inset-0 z-40 bg-black/80 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-6"
           >
             <motion.nav
@@ -102,13 +123,20 @@ export default function MenuOverlay({ isOpen, toggle }) {
                     exit: { opacity: 0, y: 20 }
                   }}
                 >
-                  <Link
-                    to={path}
-                    onClick={toggle}
-                    className="block hover:opacity-80 transition-opacity"
-                  >
-                    {label}
-                  </Link>
+<Link
+  to={path}
+  onClick={toggle}
+  className="group relative flex items-center gap-2 transition-opacity"
+>
+<motion.img
+    src={starburst}
+    alt="star"
+    className="absolute -left-20 w-45 h-45 opacity-0 group-hover:opacity-100 -z-10"
+    animate={{ rotate: +360*2 }}
+    transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
+  />
+  {label}
+</Link>
                 </motion.div>
               ))}
             </motion.nav>

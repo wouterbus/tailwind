@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --purple : #8D52FD;
+  --red: #FB575C;
+  --cyan : #00FFFF;
+  --white : #FFFFFF;
+  --black : #1D1D1D;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --primary-gradient : linear-gradient(270deg, #FD575A 0%, #8D52FD 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,9 +27,50 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(270deg, #FD575A 0%, #8D52FD 100%);
+  background: var(--primary-gradient);
   background-size: cover;
   overflow-x: hidden;
+  font-family: "Founders Grotesk";
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--white);
+  font-family: inherit;
+}
+
+h1 {
+  font-size: 3.75rem;
+}
+
+h1 span {
+  font-size: 3.25rem;
+  font-family: "Larken Demo", serif;
+}
+
+h2 {
+  font-size: 3.125rem;
+}
+
+h2 span {
+  font-size: 2.75rem;
+  font-family: "Larken Demo", serif;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h3 span {
+  font-size: 2rem;
+  font-family: "Larken Demo", serif;
+}
+
+p {
+  font-size: 1.625rem;
 }
 
 span.controls {
@@ -43,42 +84,13 @@ span.controls {
 }
 
 a {
-  color: #646cff;
+  color: var(--purple);
   text-decoration: inherit;
   font-family: "Founders Grotesk";
 }
 
 a {
   font-size: 50px;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:focus,
-button:focus-visible {
-  outline: none;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 @media (max-width:768px) {
@@ -94,51 +106,4 @@ button:focus-visible {
   letter-spacing: -2px;
   font-weight: 600;
   line-height: normal;
-}
-
-/* ----- CUSTOM CURSOR ------ */
-
-@keyframes rotateInfinite {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-#custom-cursor {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease, transform 0.1s ease;
-  mix-blend-mode: exclusion;
-}
-
-#custom-cursor svg {
-  animation: rotateInfinite 8s linear infinite;
-  width: 80px;
-  height: 80px;
-}
-
-#custom-cursor .cursor-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  color: white;
-  font-weight: 400;
-  pointer-events: none;
-}
-
-.projects-home {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding: 2rem 1rem;
-}
-
-.video-wrapper {
-  position: relative;
-  transition: transform 0.3s ease;
 }

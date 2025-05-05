@@ -1,0 +1,46 @@
+
+@keyframes rotateInfinite {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  #custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    mix-blend-mode: exclusion;
+  }
+  
+  #custom-cursor svg {
+    animation: rotateInfinite 8s linear infinite;
+    width: 80px;
+    height: 80px;
+  }
+  
+  #custom-cursor .cursor-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: white;
+    font-weight: 400;
+    pointer-events: none;
+  }
+  
+  .projects-home {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  

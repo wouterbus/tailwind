@@ -21,7 +21,7 @@ export default function Home() {
       <div 
       className="video-grid">
   {featuredProjects.map((project, index) => {
-    const { width, marginLeft } = layoutVariants[index % layoutVariants.length]; // 🔁 rotate through
+    const { width, marginLeft } = layoutVariants[index % layoutVariants.length];
     return (
       <div
         key={project.id}
@@ -38,11 +38,6 @@ export default function Home() {
     );
   })}
 </div>
-
-
-      <section id="footer">
-        <ContactUs />
-      </section>
     </main>
   );
 }
