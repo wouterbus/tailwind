@@ -28,6 +28,8 @@ button {
 h1 {
   font-size: 5rem;
   font-weight: 600;
+  line-height: 76px;
+  text-transform: uppercase;
 }
 
 h1 span {

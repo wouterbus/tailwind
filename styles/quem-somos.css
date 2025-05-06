@@ -1,0 +1,23 @@
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 24px;
+    margin-top: 64px;
+}
+
+.intro-text {
+    margin-left: 24px;
+    max-width: 550px;
+}
+
+@media (max-width:768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .intro-text {
+        max-width: inherit;
+    }
+    .intro-text img {
+        width: 100%;
+    }
+}

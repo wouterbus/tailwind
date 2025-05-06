@@ -1,3 +1,34 @@
+.title-container {
+  background-image: url(public/starburst-purple.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.title-container h1 {
+  position: absolute;
+  z-index: 10;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 56px;
+  font-size: 96px;
+}
+
+.title-container h1 span {
+  font-size: 80px;
+}
+
 .video-controls-wrapper {
     display:flex ;
     align-items: center;
@@ -43,3 +74,14 @@
   gap: 1rem
 }
   }
+
+@media (max-width:768px) {
+  .title-container h1 {
+    font-size: 50px;
+    line-height: 36px;
+  }
+  
+  .title-container h1 span {
+    font-size: 44px;
+  }
+}

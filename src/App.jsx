@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
-import Footer from "@/components/Footer/Footer"; // ✅ Add this
+import Footer from "@/components/Footer/Footer";
 
 import Home from "@/pages/home";
 import QuemSomos from "@/pages/quem-somos";
