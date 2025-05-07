@@ -65,7 +65,7 @@ export default function Hero({ videoSrc = "/videoplayback.mp4", imageSrc = null,
   return (
     <div ref={containerRef} className="w-[calc(100vw-48px)] h-[calc(100vh-48px)] bg-black relative m-[24px]">
       <MenuOverlay isOpen={menuOpen} toggle={toggleMenu} />
-
+      <><button className="primary-btn-hero purple">Contato</button></>
       {imageSrc ? (
   <>
     <img src={imageSrc} className="w-full h-full object-cover" alt="Hero background" />

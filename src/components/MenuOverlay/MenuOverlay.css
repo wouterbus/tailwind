@@ -34,3 +34,9 @@ nav a:hover {
       font-size: inherit;
     }
   }
+
+  .menu-overlay {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
