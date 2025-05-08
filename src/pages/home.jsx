@@ -4,6 +4,7 @@ import VideoHoverPreview from "@/components/VideoLoop/VideoLoop";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import projects from "@/data/projects";
 import ScrollingText from '@/components/ScrollingText/ScrollingText';
+import { useNavigate } from "react-router-dom";
 
 const layoutVariants = [
   { width: '70%', marginLeft: '0%' },
@@ -18,6 +19,7 @@ const layoutVariants = [
 
 export default function Home() {
   const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 3); 
+  const navigate = useNavigate();
 
   return (
     <main className="p-8">
@@ -46,12 +48,12 @@ export default function Home() {
   })}
       </div>
       <div className="container">
-  <button
-    className="primary-btn"
-    onClick={() => window.location.href = "/portfolio"}
-  >
-    Ver <span>Todos</span>
-  </button>
+      <button
+  className="primary-btn"
+  onClick={() => navigate("/portfolio")}
+>
+  Ver <span>Todos</span>
+</button>
 </div>
     </main>
   );

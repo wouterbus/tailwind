@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import "@/fonts.css";
 import '@/index.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import CustomCursor from "@/components/CustomCursor/CustomCursor";
@@ -14,24 +14,35 @@ import Portfolio from "@/pages/portfolio";
 import Contato from "@/pages/contato";
 import ProjectDetail from "@/pages/ProjectDetail";
 
+import { AnimatePresence } from "framer-motion";
+import PageTransitionWrapper from "@/components/PageTransitionWrapper/PageTransitionWrapper";
+
+function AppRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransitionWrapper><Home /></PageTransitionWrapper>} />
+        <Route path="/quem-somos" element={<PageTransitionWrapper><QuemSomos /></PageTransitionWrapper>} />
+        <Route path="/como-tudo-acontece" element={<PageTransitionWrapper><ComoTudoAcontece /></PageTransitionWrapper>} />
+        <Route path="/portfolio" element={<PageTransitionWrapper><Portfolio /></PageTransitionWrapper>} />
+        <Route path="/contato" element={<PageTransitionWrapper><Contato /></PageTransitionWrapper>} />
+        <Route path="/projects/:id" element={<PageTransitionWrapper><ProjectDetail /></PageTransitionWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
       <CustomCursor />
       <ScrollToTop />
-
       <div className="min-h-screen flex flex-col justify-between">
         <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/quem-somos" element={<QuemSomos />} />
-            <Route path="/como-tudo-acontece" element={<ComoTudoAcontece />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/contato" element={<Contato />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
-          </Routes>
+          <AppRoutes />
         </div>
-
         <Footer />
       </div>
     </BrowserRouter>
