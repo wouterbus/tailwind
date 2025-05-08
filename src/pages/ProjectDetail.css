@@ -1,6 +1,6 @@
 .description {
   width: calc(100% - 48px);
-  margin: 24px auto;
+  margin: 5rem auto;
 }
 
 .project-detail {
@@ -33,7 +33,7 @@
     position: relative;
   }
 
-  .video-info {
+  .title-container {
     height: 100%;
     display: flex;
     position: absolute;
@@ -46,4 +46,31 @@
     justify-content: center;
     align-items: center;
   }
+
+  .project-gallery {
+    margin-top: 40px;
+    padding-bottom: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .gallery-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: scroll;
+  }
+  
+  .gallery-grid img {
+    height: 500px;
+    width: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    
+  }
+  
+  
+  
+  
   

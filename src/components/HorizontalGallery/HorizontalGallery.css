@@ -1,0 +1,36 @@
+.project-gallery {
+    margin-top: 60px;
+  }
+  
+  .embla {
+    overflow: hidden;
+    height: 500px;
+  }
+  
+  .embla__container {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .embla__slide {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center;
+  }
+  
+  .embla__slide img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .embla__fixed-counter {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+  }
+  

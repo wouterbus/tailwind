@@ -1,58 +1,120 @@
 const projects = [
   {
-    id: '001-reel-forasteira',
-    title: 'Reel Forasteira',
-    highlightWord: 'Forasteira',
-    videoSrc: '/videos/quemsomos.mp4',
-    thumbnailAlt: 'Reel Forasteira',
-    fullProjectLink: '/projects/001-reel-forasteira',
-    customWidth: '100%',
-    aspectRatio: '16/9',
+    id: '001',
+    title: 'Smartphone Madness',
+    highlightWord: 'Madness',
+    videoSrc: '/content-project/001-ProjectName/001-smartphone-madness.mp4',
+    thumbnail: '/content-project/001-ProjectName/thumb1-min.jpg',
+    thumbnailAlt: 'Honey Mustard',
+    fullProjectLink: '/projects/001',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
     order: 1,
     credits: [
-      { role: "Owner", name: "Lua Hora" },
-      { role: "Owner", name: "Leticia Arpa" },
-      { role: "Role 3", name: "Name" },
-      { role: "Role 4", name: "Name" },
+      { role: "Director", name: "Sofia Bennett" },
+      { role: "Cinematographer", name: "Luca Moretti" },
+      { role: "Sound Designer", name: "Amara Patel" },
+      { role: "Editor", name: "Jonas Meyer" },
+      { role: "Production Assistant", name: "Gabriela Rocha" }
+    ],
+    gallery: [
+      '/content-project/001-ProjectName/image1.png',
+      '/content-project/001-ProjectName/image2.png',
+      '/content-project/001-ProjectName/image3.png',
+      '/content-project/001-ProjectName/image4.png'
     ]
   },
   {
-    id: '002-digital-vibes',
-    title: 'This is a Highlighted Text',
-    highlightWord: 'Highlighted',
-    videoSrc: '/videos/videoplayback.mp4',
-    imgSrc: '/images/Thumbnail_Source_Test.png',
-    thumbnailAlt: 'Digital Vibes',
-    fullProjectLink: '/projects/002-digital-vibes',
-    customWidth: '100%',
-    aspectRatio: '16/9',
+    id: '002',
+    title: 'The Day We Skipped Time',
+    highlightWord: 'Skipped Time',
+    videoSrc: '/content-project/001-ProjectName/001-smartphone-madness.mp4',
+    thumbnail: '/content-project/001-ProjectName/thumb1-min.jpg',
+    thumbnailAlt: 'Honey Mustard',
+    fullProjectLink: '/projects/002',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
     order: 2,
     credits: [
-      { role: "Role", name: "Name" },
-      { role: "Role", name: "Name" },
-      { role: "Role", name: "Name" },
-      { role: "Role", name: "Name" },
-      { role: "Role", name: "Name" },
-      { role: "Role", name: "Name" },
+      { role: "Director", name: "Elias Fontaine" },
+      { role: "Set Designer", name: "Luna Park" },
+      { role: "Lighting Technician", name: "Joey Mendes" },
+      { role: "Drone Operator", name: "Alexei Novak" },
+      { role: "Runner", name: "Theo Martins" }
+    ],
+    gallery: [
+      '/content-project/001-ProjectName/image1.png',
+      '/content-project/001-ProjectName/image2.png',
+      '/content-project/001-ProjectName/image3.png',
+      '/content-project/001-ProjectName/image4.png'
     ]
   },
   {
-    id: '003-honey-mustard',
+    id: '003',
+    title: 'Voicemail from the Void',
+    highlightWord: 'Voicemail',
+    videoSrc: '/videos/videoplayback.mp4',
+    thumbnail: '/content-project/thumbnails/thumb1-min.jpg',
+    thumbnailAlt: 'Honey Mustard',
+    fullProjectLink: '/projects/003',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
+    order: 3,
+    credits: [
+      { role: "Director", name: "Juno Wakefield" },
+      { role: "Producer", name: "Leila Armstrong" },
+      { role: "Editor", name: "Tomás Oliveira" }
+    ],
+    gallery: [
+      '/content-project/001-ProjectName/image1.png',
+      '/content-project/001-ProjectName/image2.png',
+      '/content-project/001-ProjectName/image3.png',
+      '/content-project/001-ProjectName/image4.png'
+    ]
+  },
+  {
+    id: '004',
+    title: 'Pixel Burnout',
+    highlightWord: 'Burnout',
+    videoSrc: '/videos/videoplayback.mp4',
+    thumbnail: '/images/Thumbnail_Source_Test.png',
+    thumbnailAlt: 'Honey Mustard',
+    fullProjectLink: '/projects/004',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
+    order: 4,
+    credits: [
+      { role: "Gaffer", name: "Omar Leclerc" },
+      { role: "Best Boy", name: "Zane Holloway" },
+      { role: "Grip", name: "Beatriz Souza" },
+      { role: "Electrician", name: "Niko Järvinen" }
+    ],
+    gallery: [
+      '/content-project/001-ProjectName/image1.png',
+      '/content-project/001-ProjectName/image2.png',
+      '/content-project/001-ProjectName/image3.png',
+      '/content-project/001-ProjectName/image4.png'
+    ]
+  },
+  {
+    id: '005',
     title: 'This is a Story about a friend',
     highlightWord: 'about a friend',
     videoSrc: '/videos/videoplayback.mp4',
     thumbnail: '/images/Thumbnail_Source_Test.png',
     thumbnailAlt: 'Honey Mustard',
-    fullProjectLink: '/projects/003-honey-mustard',
+    fullProjectLink: '/projects/005',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio aspernatur sint non facere. Facere obcaecati provident nesciunt earum explicabo. Neque possimus esse ab dignissimos iste cum vitae impedit facilis?',
-    order: 3,
+    order: 5,
     credits: [
-      { role: "Director", name: "Hilary Hilton" },
-      { role: "Lead Designer", name: "Barry Oldman" },
-      { role: "Anchor", name: "Fernando da Silva" },
-      { role: "Waterboy", name: "Brad Pitt" },
+      { role: "Line Producer", name: "Seth Romano" },
+      { role: "Scriptwriter", name: "Yasmin Idris" },
+      { role: "Camera Operator", name: "Ivan Markovic" },
+      { role: "Art Director", name: "Delphine Rousseau" },
+      { role: "Props Master", name: "Mateo Delgado" },
+      { role: "Runner", name: "Emily Zhang" }
+    ],
+    gallery: [
+      '/content-project/001-ProjectName/image1.png',
+      '/content-project/001-ProjectName/image2.png',
+      '/content-project/001-ProjectName/image3.png',
+      '/content-project/001-ProjectName/image4.png'
     ]
   }
 ];

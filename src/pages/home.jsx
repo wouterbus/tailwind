@@ -17,7 +17,7 @@ const layoutVariants = [
 ];
 
 export default function Home() {
-  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 6); 
+  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 3); 
 
   return (
     <main className="p-8">

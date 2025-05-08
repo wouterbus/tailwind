@@ -15,7 +15,7 @@ const layoutVariants = [
 ];
 
 export default function Portfolio() {
-  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, 6); 
+  const featuredProjects = [...projects].sort((a, b) => a.order - b.order).slice(0, Infinity); 
 
   return (
     <main className="p-8">

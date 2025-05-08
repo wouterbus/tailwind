@@ -12,11 +12,19 @@ export default function Portfolio() {
     <div className="title-container">
     <h1 className="uppercase">Quem<br></br><span className="font-larken uppercase">Somos</span></h1>
     </div>
+    <div
+  className="arrow-down z-60 absolute bottom-[20px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce"
+  onClick={() => {
+    document.getElementById("arrow-target")?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+    <img src="/arrow-down.svg" width={60} alt="Scroll down" />
+    </div>
     </>
   }
 />
 <>
-<div className="content-wrapper">
+<div id="arrow-target" className="content-wrapper arrow-target">
 <div className="intro-text">
   <h1>The<br></br><span>Squad</span></h1>
   <p>Forasteira é liderada pelo duo Leticia Arpa e Lua Hora, cada um com mais de 10 anos de experiência no audiovisual, em projetos nacionais e internacionais.
