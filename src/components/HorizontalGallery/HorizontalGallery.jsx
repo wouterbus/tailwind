@@ -1,6 +1,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useState } from 'react';
 import './HorizontalGallery.css';
+import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
 export default function HorizontalGallery({ images = [] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
