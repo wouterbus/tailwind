@@ -5,9 +5,9 @@
     .animate-spin-slow {
       animation: spin 6s linear infinite;
     }
-  }
+}
 
-  h1,
+h1,
 h2,
 h3,
 h4,
@@ -20,7 +20,8 @@ h1,
 h2,
 h3,
 h4,
-button {
+button,
+li {
   letter-spacing: -0.055rem;
   font-weight: 600;
 }

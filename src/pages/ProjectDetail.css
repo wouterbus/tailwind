@@ -1,25 +1,49 @@
+.description {
+  width: calc(100% - 48px);
+  margin: 24px auto;
+}
+
 .project-detail {
     font-family: "Founders Grotesk";
   }
-  
-  .project-detail h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+
   
   .project-detail .credits {
     margin-top: 3rem;
-  }
-  
-  .project-detail .credits h3 {
-    font-size: 21.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-family: "Founders Grotesk";
   }
   
   .project-detail .credits li {
     margin-bottom: 0.5rem;
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-family: "Founders Grotesk";
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .project-detail .credits li span {
+    color: var(--purple);
+    mix-blend-mode: color-dodge;
+    font-size: 2rem;
+    font-family: 'Larken';font-weight: 600;
+  }
+
+  .project-detail {
+    position: relative;
+  }
+
+  .video-info {
+    height: 100%;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   

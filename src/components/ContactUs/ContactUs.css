@@ -6,6 +6,7 @@
   padding: 24px;
   gap: 24px;
   width: 100vw;
+  position: relative;
 }
 
 .form-field {
@@ -100,6 +101,16 @@ img.starburst {
     margin: 1rem;
     margin-bottom: -35%;
     animation: rotate 12s linear infinite;
+}
+
+.status-message.success {
+  color: var(--purple);
+  font-size: 18px;
+  font-family: 'Founders Grotesk';
+  text-transform: uppercase;
+  font-weight: 700;
+  position: absolute;
+  bottom: -32px;
 }
 
 @keyframes rotate {

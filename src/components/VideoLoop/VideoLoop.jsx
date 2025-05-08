@@ -2,18 +2,7 @@ import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './VideoLoop.css';
-
-function highlightWordInTitle(title, wordToWrap) {
-  if (!title || !wordToWrap) return title;
-  const parts = title.split(new RegExp(`(${wordToWrap})`, 'gi'));
-  return parts.map((part, index) =>
-    part.toLowerCase() === wordToWrap.toLowerCase() ? (
-      <span key={index} className="highlight">{part}</span>
-    ) : (
-      <React.Fragment key={index}>{part}</React.Fragment>
-    )
-  );
-}
+import HighlightedText from "@/components/HighlightedText/HighlightedText";
 
 const VideoHoverPreview = ({
   videoSrc,
@@ -115,7 +104,7 @@ const VideoHoverPreview = ({
     </div>
     <div className="video-info">
     <h3 className="video-title">
-    {highlightWordInTitle(title, highlightWord)}
+    <HighlightedText title={title} highlight={highlightWord} />
     </h3>
       {description && <p className="video-description">{description}</p>}
     </div>
