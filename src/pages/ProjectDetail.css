@@ -1,5 +1,6 @@
 .description {
   width: calc(100% - 48px);
+  max-width: 1440px;
   margin: 5rem auto;
 }
 
@@ -70,7 +71,14 @@
     
   }
   
-  
+  @media (max-width:768px) {
+    .project-detail .credits li {
+      font-size: 1.6rem;
+    }
+    .project-detail .credits li span { 
+      font-size: 1.5rem;
+    }
+  }
   
   
   

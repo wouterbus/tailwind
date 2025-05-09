@@ -114,6 +114,8 @@ button:focus-visible {
 @media (max-width:768px) {
   h1 {
     font-size: 3.125rem;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
   
   h1 span {

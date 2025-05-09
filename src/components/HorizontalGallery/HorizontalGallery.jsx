@@ -47,8 +47,12 @@ export default function HorizontalGallery({ images = [] }) {
     container.addEventListener('wheel', handleWheel, { passive: true });
     return () => container.removeEventListener('wheel', handleWheel);
   }, [emblaApi]);
-  
 
+  useEffect(() => {
+    const event = new Event("cursor-rebind");
+    window.dispatchEvent(event);
+  }, []);
+  
   if (!images.length) return null;
 
   return (

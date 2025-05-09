@@ -99,6 +99,10 @@
     width: 100%!important;
     margin-left: auto!important;
   }
+  .video-container h3 {
+    line-height: 80%;
+    margin-bottom: 32px;
+  }
 }
 
 .container {

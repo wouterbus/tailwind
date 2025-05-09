@@ -37,37 +37,54 @@ export default function CustomCursor() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const viewTargets = document.querySelectorAll('[data-cursor="view"]');
-    const galleryTargets = document.querySelectorAll('[data-cursor="gallery"]');
+    const bindCursorEvents = () => {
+      const viewTargets = document.querySelectorAll('[data-cursor="view"]');
+      const galleryTargets = document.querySelectorAll('[data-cursor="gallery"]');
   
-    const handleViewEnter = () => setIsHovering(true);
-    const handleViewLeave = () => setIsHovering(false);
+      const handleViewEnter = () => setIsHovering(true);
+      const handleViewLeave = () => setIsHovering(false);
+      const handleGalleryEnter = () => setIsHovering("gallery");
+      const handleGalleryLeave = () => setIsHovering(false);
   
-    const handleGalleryEnter = () => setIsHovering("gallery");
-    const handleGalleryLeave = () => setIsHovering(false);
-  
-    viewTargets.forEach((el) => {
-      el.addEventListener("mouseenter", handleViewEnter);
-      el.addEventListener("mouseleave", handleViewLeave);
-    });
-  
-    galleryTargets.forEach((el) => {
-      el.addEventListener("mouseenter", handleGalleryEnter);
-      el.addEventListener("mouseleave", handleGalleryLeave);
-    });
-  
-    return () => {
       viewTargets.forEach((el) => {
-        el.removeEventListener("mouseenter", handleViewEnter);
-        el.removeEventListener("mouseleave", handleViewLeave);
+        el.addEventListener("mouseenter", handleViewEnter);
+        el.addEventListener("mouseleave", handleViewLeave);
       });
   
       galleryTargets.forEach((el) => {
-        el.removeEventListener("mouseenter", handleGalleryEnter);
-        el.removeEventListener("mouseleave", handleGalleryLeave);
+        el.addEventListener("mouseenter", handleGalleryEnter);
+        el.addEventListener("mouseleave", handleGalleryLeave);
       });
+  
+      // Cleanup
+      return () => {
+        viewTargets.forEach((el) => {
+          el.removeEventListener("mouseenter", handleViewEnter);
+          el.removeEventListener("mouseleave", handleViewLeave);
+        });
+        galleryTargets.forEach((el) => {
+          el.removeEventListener("mouseenter", handleGalleryEnter);
+          el.removeEventListener("mouseleave", handleGalleryLeave);
+        });
+      };
+    };
+  
+    const handleCursorRebind = () => {
+      const cleanup = bindCursorEvents();
+      return cleanup;
+    };
+  
+    const cleanup = handleCursorRebind();
+  
+    // Listen to custom event for rebinding
+    window.addEventListener("cursor-rebind", handleCursorRebind);
+  
+    return () => {
+      cleanup?.();
+      window.removeEventListener("cursor-rebind", handleCursorRebind);
     };
   }, [location.pathname]);
+  
   
 
   return (
